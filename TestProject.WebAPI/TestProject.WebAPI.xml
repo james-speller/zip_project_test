@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestProject.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:TestProject.WebAPI.Controllers.AccountController.CreateAccount(System.Int32)">
+            <summary>
+            Create an Account
+            </summary>
+            <remarks>
+            Takes the Id of a <see cref="T:TestProject.Data.Models.User"/> and attempts to create them an <see cref="T:TestProject.Data.Models.Account"/>. If the User's salary - expenses is
+            less than the configured credit limit the system will not allow them to create an account.
+            </remarks>
+            <param name="userId">The Id of the <see cref="T:TestProject.Data.Models.User"/> to create the <see cref="T:TestProject.Data.Models.Account"/> for.</param>
+            <returns>Returns the Id of the created user as an int.</returns>
+        </member>
+        <member name="M:TestProject.WebAPI.Controllers.AccountController.ListAccounts">
+            <summary>
+            List all Accounts
+            </summary>
+            <remarks>
+            Gets a <see cref="T:System.Collections.Generic.List`1"/> which contains all the accounts in the system. If no results exist an empty
+            list will be returned.
+            </remarks>
+            <returns>Returns a <see cref="T:System.Collections.Generic.List`1"/>.</returns>
+        </member>
+        <member name="M:TestProject.WebAPI.Controllers.UserController.GetUser(System.Int32)">
+            <summary>
+            Get a User by Id
+            </summary>
+            <remarks>
+            Attempts to match a <see cref="T:TestProject.Data.Models.User"/> by their Id, if a match is found it will be returned as a <see cref="T:TestProject.WebAPI.Models.UserViewModel"/>.
+            If there is not match, then a null will be returned.
+            </remarks>
+            <param name="userId">The Id of the <see cref="T:TestProject.Data.Models.User"/> to retrieve.</param>
+            <returns>Returns a <see cref="T:TestProject.WebAPI.Models.UserViewModel"/>.</returns>
+        </member>
+        <member name="M:TestProject.WebAPI.Controllers.UserController.ListUsers">
+            <summary>
+            List all Users
+            </summary>
+            <remarks>
+            Gets a <see cref="T:System.Collections.Generic.List`1"/> which coantains all the users in the system. If no results exist an empty
+            list will be returned.
+            </remarks>
+            <returns>Returns a <see cref="T:System.Collections.Generic.List`1"/>.</returns>
+        </member>
+        <member name="M:TestProject.WebAPI.Controllers.UserController.CreateUser(TestProject.WebAPI.Models.UserViewModel)">
+            <summary>
+            Create a User
+            </summary>
+            <remarks>
+            Takes a <see cref="T:TestProject.WebAPI.Models.UserViewModel"/> and attempts to persist in the database. If the User's name or email are empty
+            then an invalid response will be sent and the User will not be created. If the User's salary or expenses are not positive
+            integers then the User will not be created and an invalid response will be sent. If the User's email already exists
+            in the system then the User will not be created an a conflict response will be sent. If the User is successfully created
+            then the Id automatically generated for them by the database will be returned.
+            </remarks>
+            <param name="user">The <see cref="T:TestProject.WebAPI.Models.UserViewModel"/> to Create.</param>
+            <returns>Returns User Id as int.</returns>
+        </member>
+    </members>
+</doc>
